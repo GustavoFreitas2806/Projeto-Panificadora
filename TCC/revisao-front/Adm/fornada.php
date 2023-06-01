@@ -98,7 +98,7 @@ if (!isset($_SESSION)) {
                                 ?>
 
                                 <div class="modal fade" id="exampleModal" tabindex="-1"
-                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true" style="transition: 0.15s;">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">

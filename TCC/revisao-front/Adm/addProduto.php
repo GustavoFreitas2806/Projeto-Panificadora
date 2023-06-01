@@ -38,6 +38,10 @@ require 'protect.php';
                                 <input type="text" name="nm_produto" class="form-control" Required>
                             </div>
                             <div class="mb-3">
+                                <label>Descrição (100 caracteres)</label>
+                                <input type="text" name="descricao" class="form-control" Required maxlength="100">
+                            </div>
+                            <div class="mb-3">
                                 <label>Tipo unitário</label><br>
                                 <select name="tp_unitario" Required>
                                     <option value="KG">KG</option>

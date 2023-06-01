@@ -2,6 +2,7 @@
 require 'conexao.php';
 include 'message.php';
 
+
 if (!isset($_SESSION)) {
     session_start();
 }
@@ -51,6 +52,8 @@ if (isset($_POST['save_produto'])) {
     $tp_unitario = mysqli_real_escape_string($con, $_POST['tp_unitario']);
     $vl_produto = mysqli_real_escape_string($con, $_POST['vl_produto']);
     $idCategoria = mysqli_real_escape_string($con, $_POST['idCategoria']);
+    $descricao = mysqli_real_escape_string($con, $_POST['descricao']);
+
 
 
     $arquivoImg = $_FILES['img'];
@@ -72,7 +75,7 @@ if (isset($_POST['save_produto'])) {
         die("Só são aceitos arquivos JPG e PNG.");
     }
 
-    $query = "INSERT INTO tb_produto (`nm_produto`, `tp_unitario`, `vl_produto`, `idCategoria`, `nm_imagem`) VALUES ('$nm_produto','$tp_unitario','$vl_produto','$idCategoria', '$nomeUnico.$extensao')";
+    $query = "INSERT INTO tb_produto (`nm_produto`, `tp_unitario`, `vl_produto`, `idCategoria`, `nm_imagem`, `descricao`) VALUES ('$nm_produto','$tp_unitario','$vl_produto','$idCategoria', '$nomeUnico.$extensao', '$descricao')";
     $query_run = mysqli_query($con, $query);
 
 
@@ -94,12 +97,12 @@ if (isset($_POST['delete_produto'])) {
 
     $query = "DELETE FROM tb_produto WHERE idProduto='$idProduto' ";
     $query_run = mysqli_query($con, $query);
-    
-    $nm_imagem = mysqli_real_escape_string($con, $_POST['img']);    
+
+    $nm_imagem = mysqli_real_escape_string($con, $_POST['img']);
 
     if ($query_run) {
         $_SESSION['message'] = "Produto excluido com sucesso";
-        unlink("arquivos/".$nm_imagem);
+        unlink("arquivos/" . $nm_imagem);
         header("Location: vitrineAdm.php");
         exit(0);
     } else {
@@ -111,12 +114,33 @@ if (isset($_POST['delete_produto'])) {
 
 if (isset($_POST['update_produto'])) {
     $idProduto = mysqli_real_escape_string($con, $_POST['idProduto']);
+    $descricao = mysqli_real_escape_string($con, $_POST['descricao']);
     $nm_produto = mysqli_real_escape_string($con, $_POST['nm_produto']);
     $tp_unitario = mysqli_real_escape_string($con, $_POST['tp_unitario']);
     $vl_produto = mysqli_real_escape_string($con, $_POST['vl_produto']);
     $idCategoria = mysqli_real_escape_string($con, $_POST['idCategoria']);
+    $imgAntiga = mysqli_real_escape_string($con, $_POST['imgAntiga']);
 
-    $query = "UPDATE tb_produto SET nm_produto='$nm_produto', tp_unitario='$tp_unitario', vl_produto='$vl_produto', idCategoria='$idCategoria' WHERE idProduto='$idProduto' ";
+    $arquivoImg = $_FILES['img'];
+
+    if ($arquivoImg['error']) {
+        die("Falha em enviar o arquivo");
+    }
+
+    if ($arquivoImg['size'] > 10485760) {
+        die("O tamanho máximo do arquivo é de 10mb");
+    }
+
+    $local = "arquivos/";
+    $nomeDoArquivo = $arquivoImg['name'];
+    $nomeUnico = uniqid();
+    $extensao = strtolower(pathinfo($nomeDoArquivo, PATHINFO_EXTENSION));
+
+    if ($extensao != "jpg" && $extensao != "png" && $extensao != "jpeg") {
+        die("Só são aceitos arquivos JPG e PNG.");
+    }
+
+    $query = "UPDATE tb_produto SET nm_produto='$nm_produto', descricao='$descricao', tp_unitario='$tp_unitario', vl_produto='$vl_produto', idCategoria='$idCategoria', nm_imagem='$nomeUnico.$extensao' WHERE idProduto='$idProduto' ";
     $query_run = mysqli_query($con, $query);
 
     //Caso $query_run (mysqli_query) seja true, a váriavel $_SESSION['MESSAGE'] recebe uma frase dizendo que o conteiner foi atualizado, 
@@ -124,6 +148,8 @@ if (isset($_POST['update_produto'])) {
     if ($query_run) {
         $_SESSION['message'] = "Produto atualizado com sucesso";
         //função rediriciona para index.php
+        $uploadImgOk = move_uploaded_file($arquivoImg["tmp_name"], $local . $nomeUnico . "." . $extensao);
+        unlink("arquivos/" . $imgAntiga);
         header("Location: vitrineAdm.php");
 
         //fim da função do script (mysql)
@@ -187,9 +213,14 @@ if (isset($_POST['save_fornada'])) {
     $query = "INSERT INTO tb_fornada (`quantidade`, `dt_fornada`) VALUES ('$quantidade', '$dt_fornada');";
     $query_run = mysqli_query($con, $query);
 
+    $query_fornada = $db->query($sql);
+    // O segredo esta nesta linha abaixo \\/
+    $return = $query_fornada->fetchAll();
+
 
     if ($query_run) {
-        $_SESSION['message'] = "Fornada cadastrada com sucesso!";
+        $_SESSION['message'] = $return['quantidade'];
+        $_SESSION['messageLogin'] = "Fornada cadastrada com sucesso!";
         header("Location: fornada.php");
         exit(0);
     } else {

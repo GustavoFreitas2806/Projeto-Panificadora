@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- link do css, para fazer alterações no bootstrap -->
+    <link rel="stylesheet" href="css/styleInicio.css">
+    <title>Panificadora Sonho Meu</title>
+</head>
+
+<body>
+    <!-- se quiser deixar fixado pode utilizar o fixed-top -->
+    <nav class="navbar navbar-expand-lg fixed-top bg-primary-color" id="navbar">
+        <div class="container">
+            <a href="#" class="navbar-brand primary-color">
+                <img src="images/logo.png" alt="Logo sonho meu">
+                <span>Panificadora Sonho Meu</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-items"
+                aria-expanded="false" aria-label="toggle navigation">
+                <i class="bi bi-list"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar-items">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a href="index.php" class="nav-link primary-color active" aria-current="page">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="local.html" class="nav-link primary-color">Local</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link primary-color">Sobre nós</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="vitrineCliente.php" class="nav-link primary-color">Vitrine</a>
+                    </li>
+                    <li class="nav-item text-center"
+                        style="background-color: #3973C2; border-radius: 20px; width: 70px;">
+                        <a href="../Adm/login.php" class="nav-link primary-color" id="adm"
+                            style="color: #fff;"><b>ADM</b></a>
+                    </li>
+                    <li class="nav-item">
+                        <input type="checkbox" class="checkbox" id="chk" />
+                        <label class="label" for="chk">
+                            <i class="fas fa-sun"></i>
+                            <i class="fas fa-moon"></i>
+                            <div class="ball"></div>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <?php 
+        include ('../adm/funcao.php');
+        fornada();
+    ?>
+
+
+    <div class="container">
+        <div class="row">
+            <main>
+                <section class="home">
+
+                    <div class="col">
+                        <div class="home-text text-start">
+                            <h4 class="text-h4">Panificadora</h4>
+                            <h1 class="text-h1"> Sonho Meu</h1>
+
+                            <p>Sendo uma das melhores panificadoras da região, a Panificadora Sonho Meu apresenta preços
+                                juntos
+                                e um ótimo atendimento. Conheça nossa história, produtos e quando saiu a fornada mais
+                                recente!
+                            </p>
+
+                            <a href="local.html"><button class="home-btn">Veja mais</button></a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="home-img">
+                            <img src="images/logoInicial.png" alt="">
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+        </div>
+
+    </div>
+
+    <script src="https://kit.fontawesome.com/67596f1e06.js" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

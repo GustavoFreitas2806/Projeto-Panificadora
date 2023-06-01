@@ -1,3 +1,15 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1 1 0;
+    border: 0;
+}
+
+
 h1 {
     color: red;
     position: center;
@@ -202,5 +214,35 @@ h1 {
     .navbar-brand img {
         width: 30px;
         height: 20px;
+    }
+}
+
+
+/* BALÕES DO SOBRE NOS */
+
+
+
+/* Para desktop, dar uma margem maior entre o texto e os balões  */
+@media (min-width: 640px) {
+    .baloes {
+        margin-left: 30px;
+        animation: go-up 2s;
+    }
+}
+
+.baloes {
+    color: #fff;
+}
+
+
+/* ANIMAÇÃO DO CSS  */
+
+@keyframes go-up {
+    0% {
+        transform: translateY(-100px);
+    }
+
+    100% {
+        transform: translateY(0);
     }
 }

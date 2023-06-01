@@ -1,3 +1,5 @@
+
+
 h1 {
     color: red;
     position: center;
@@ -131,6 +133,7 @@ body {
 
 .home-img img {
     width: 100%;
+    animation: go-up 2s;
 }
 
 
@@ -138,6 +141,7 @@ body {
 /* dark theme */
 
 body.dark,
+body.dark nav,
 body.dark #navbar,
 body.dark span,
 body.dark ul li a {
@@ -224,6 +228,15 @@ body.dark span:hover {
     }
 }
 
+@media(min-width: 640px) {
+    .home-text {
+        max-width: 37rem;
+        width: 100%;
+        margin-top: 2.5%;
+        margin-left: -20%;
+    }
+}
+
 @media(max-width: 640px) {
 
     .navbar-brand span {
@@ -246,6 +259,8 @@ body.dark span:hover {
 
     .home {
         margin-top: 25%;
+        justify-content: center;
+        align-items: center;
     }
 
 
@@ -262,4 +277,17 @@ body.dark span:hover {
     }
 
 
+}
+
+
+/* ANIMAÇÃO DO CSS  */
+
+@keyframes go-up {
+    0% {
+        transform: translateY(-100px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
 }

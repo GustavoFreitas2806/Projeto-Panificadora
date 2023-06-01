@@ -42,7 +42,7 @@ require 'protect.php';
                                 //atualizar a variável com a informação que vem no select, retorna uma linha
                                 $produto = mysqli_fetch_array($query_run);
                                 ?>
-                                <form action="code.php" method="POST">
+                                <form action="code.php" method="POST" enctype="multipart/form-data">
                                     <div class="mb-3">
                                         <label>ID</label>
                                         <input type="text" name="idProduto" value="<?= $produto['idProduto']; ?>"
@@ -51,6 +51,11 @@ require 'protect.php';
                                     <div class="mb-3">
                                         <label>Nome do produto</label>
                                         <input type="text" name="nm_produto" value="<?= $produto['nm_produto']; ?>"
+                                            class="form-control" Required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Descricao</label>
+                                        <input type="text" name="descricao" value="<?= $produto['descricao']; ?>"
                                             class="form-control" Required>
                                     </div>
                                     <div class="mb-3">
@@ -77,14 +82,18 @@ require 'protect.php';
                                     </div>
                                     <div class="mb-3">
                                         <label>Valor</label>
-                                        <input type="number" step="0.01" min="0" name="vl_produto" class="form-control" 
+                                        <input type="number" step="0.01" min="0" name="vl_produto" class="form-control"
                                             value="<?= $produto['vl_produto']; ?>" Required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Imagem</label> <br>
+                                        <input type="file" name="img" Required /> <br><br>
+                                        <input type="text" name="imgAntiga" value="<?= $produto ['nm_imagem']?>" style="display: none;">
                                     </div>
                                     <div class="mb-3">
                                         <button type="submit" name="update_produto" class="btn btn-primary">Atualizar
                                             produto</button>
                                     </div>
-
                                 </form>
                                 <?php
                             } else {

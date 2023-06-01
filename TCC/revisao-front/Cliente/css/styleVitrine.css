@@ -1,3 +1,14 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1 1 0;
+    border: 0;
+}
+
 h1 {
     color: red;
     position: center;
