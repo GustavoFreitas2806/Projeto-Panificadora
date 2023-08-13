@@ -28,7 +28,7 @@ session_start();
                 <?php include 'message.php'; ?>
                 <div class="container-botao">
                     <div class="botao-voltar">
-                        <a href="../Cliente/index.html"><button class="voltar" type="button">Voltar</button></a>
+                        <a href="../Cliente/index.php"><button class="voltar" type="button">Voltar</button></a>
                         <div class="botao-entrar">
                             <button type="submit" class="adicionar" name="login">Entrar</button>
                         </div>

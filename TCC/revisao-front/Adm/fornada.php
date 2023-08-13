@@ -24,7 +24,7 @@ if (!isset($_SESSION)) {
             <ul>
                 <li><a href="vitrineAdm.php">Vitrine</a></li>
                 <li class="active"><a href="fornada.php">Fornada</a></li>
-                <li><a href="../Cliente/index.html"><button class="adm" type="submit" name="sair">Sair</button></a>
+                <li><a href="../Cliente/index.php"><button class="adm" type="submit" name="sair">Sair</button></a>
                 </li>
             </ul>
         </form>

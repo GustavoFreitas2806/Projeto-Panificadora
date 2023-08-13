@@ -64,7 +64,8 @@
                 <p>São vendidos produtos de diferentes categorias, como lactícinios, alimentos, bebidas além da
                     tradicional
                     padaria do estabelecimento. Nosso objetivo é ajudar a tornar os momentos mais agradáveis.</p>
-                <button class="btn btn-danger" style="width: 50%; margin-top: 60px; border-radius: 40px; font-weight: 600;">Veja abaixo</button>
+                <button class="btn btn-danger"
+                    style="width: 50%; margin-top: 60px; border-radius: 40px; font-weight: 600;">Veja abaixo</button>
             </div>
         </section>
 
@@ -90,20 +91,20 @@
                 </div>
                 <div class="carousel-inner">
 
-                    <div class="carousel-item active">
+                    <div class="carousel-item active" style="border-radius:30%">
 
                         <div class="cards-wrapper">
 
                             <?php
                             require '../adm/conexao.php';
-                            $query = "SELECT * FROM tb_produto;";
+                            $query = "SELECT * FROM tb_produto where idCategoria = 4;";
                             $query_run = mysqli_query($con, $query);
 
                             if (mysqli_num_rows($query_run) > 0) {
                                 //atribuir as informação do select ao array container 
                                 foreach ($query_run as $produto) {
                                     ?>
-                                    <div class="card" style="width: 18rem;">
+                                    <div class="card" style="width: 18rem; border: 3px solid; border-width: 3px; border-style: solid; font-weight: bold;">
                                         <img src="../adm/arquivos/<?= $produto['nm_imagem'] ?>" class="card-img-top" alt=""
                                             style="width: 100%; max-width: 250px; max-height: 200px">
                                         <div class="card-body">
@@ -115,7 +116,7 @@
                                             </p>
                                             <hr>
                                             <ul class="list-group list-group-flush">
-                                                <li class="list-group-item" style="font-size: 25px; cursor: auto">R$
+                                                <li class="list-group-item" style="font-size: 25px; cursor: auto; background-color: #E6E6E6; border: 3px solid">R$
                                                     <?= $produto['vl_produto'] ?>
                                                 </li>
                                             </ul>
@@ -138,206 +139,10 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="carousel-item">
-
-                    <div class="cards-wrapper">
-
-                        <div class="card" style="width: 18rem;">
-                            <img src="images/carro1.jpg" class="card-img-top" alt="">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up
-                                    the
-                                    bulk of the card's
-                                    content.</p>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">An item</li>
-                                <li class="list-group-item">A second item</li>
-                                <li class="list-group-item">A third item</li>
-                            </ul>
-
-                        </div>
-
-                        <div class="card" style="width: 18rem;">
-                            <img src="images/carro2.jpg" class="card-img-top" alt="">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up
-                                    the
-                                    bulk of the card's
-                                    content.</p>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">An item</li>
-                                <li class="list-group-item">A second item</li>
-                                <li class="list-group-item">A third item</li>
-                            </ul>
-
-                        </div>
-
-                        <div class="card" style="width: 18rem;">
-                            <img src="images/carro3.jpg" class="card-img-top" alt="">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up
-                                    the
-                                    bulk of the card's
-                                    content.</p>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">An item</li>
-                                <li class="list-group-item">A second item</li>
-                                <li class="list-group-item">A third item</li>
-                            </ul>
-
-                        </div>
-
-                        <div class="card" style="width: 18rem;">
-                            <img src="images/carro3.jpg" class="card-img-top" alt="">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up
-                                    the
-                                    bulk of the card's
-                                    content.</p>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">An item</li>
-                                <li class="list-group-item">A second item</li>
-                                <li class="list-group-item">A third item</li>
-                            </ul>
-
-                        </div>
-
-                        <div class="card" style="width: 18rem;">
-                            <img src="images/carro2.jpg" class="card-img-top" alt="">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up
-                                    the
-                                    bulk of the card's
-                                    content.</p>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">An item</li>
-                                <li class="list-group-item">A second item</li>
-                                <li class="list-group-item">A third item</li>
-                            </ul>
-
-                        </div>
-
-                    </div>
-
-                </div>
-                <div class="carousel-item">
-
-                    <div class="cards-wrapper">
-
-                        <div class="card" style="width: 18rem;">
-                            <img src="images/carro1.jpg" class="card-img-top" alt="">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up
-                                    the
-                                    bulk of the card's
-                                    content.</p>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">An item</li>
-                                <li class="list-group-item">A second item</li>
-                                <li class="list-group-item">A third item</li>
-                            </ul>
-
-                        </div>
-
-                        <div class="card" style="width: 18rem;">
-                            <img src="images/carro2.jpg" class="card-img-top" alt="">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up
-                                    the
-                                    bulk of the card's
-                                    content.</p>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">An item</li>
-                                <li class="list-group-item">A second item</li>
-                                <li class="list-group-item">A third item</li>
-                            </ul>
-
-                        </div>
-
-                        <div class="card" style="width: 18rem;">
-                            <img src="images/carro3.jpg" class="card-img-top" alt="">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up
-                                    the
-                                    bulk of the card's
-                                    content.</p>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">An item</li>
-                                <li class="list-group-item">A second item</li>
-                                <li class="list-group-item">A third item</li>
-                            </ul>
-
-                        </div>
-
-                        <div class="card" style="width: 18rem;">
-                            <img src="images/carro3.jpg" class="card-img-top" alt="">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up
-                                    the
-                                    bulk of the card's
-                                    content.</p>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">An item</li>
-                                <li class="list-group-item">A second item</li>
-                                <li class="list-group-item">A third item</li>
-                            </ul>
-
-                        </div>
-
-                        <div class="card" style="width: 18rem;">
-                            <img src="images/carro2.jpg" class="card-img-top" alt="">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up
-                                    the
-                                    bulk of the card's
-                                    content.</p>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">An item</li>
-                                <li class="list-group-item">A second item</li>
-                                <li class="list-group-item">A third item</li>
-                            </ul>
-
-                        </div>
-
-
-
-
-                    </div>
-
-
-
-                </div>
             </div>
-        </div>
-
-        </div>
-
-        <div class="container-md">
-
             <div class="container-md">
-                <h1 class="text-left primary-color"
-                    style="color: black; margin-bottom: -70px; margin-left: 55px; margin-top: -90px;"><b>Bebidas</b>
+                <h1 class="text-left primary-color" style="color: black; margin-bottom: -70px; margin-left: 55px;">
+                    <b>Alimentos</b>
                 </h1>
             </div>
 
@@ -357,285 +162,48 @@
 
                         <div class="cards-wrapper">
 
-                            <div class="card" style="width: 18rem;">
-                                <img src="images/carro1.jpg" class="card-img-top" alt="">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the
-                                        bulk of the card's
-                                        content.</p>
-                                </div>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">An item</li>
-                                    <li class="list-group-item">A second item</li>
-                                    <li class="list-group-item">A third item</li>
-                                </ul>
+                            <?php
+                            require '../adm/conexao.php';
+                            $query = "SELECT * FROM tb_produto where idCategoria = 2;";
+                            $query_run = mysqli_query($con, $query);
 
-                            </div>
-
-                            <div class="card" style="width: 18rem;">
-                                <img src="images/carro2.jpg" class="card-img-top" alt="">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the
-                                        bulk of the card's
-                                        content.</p>
-                                </div>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">An item</li>
-                                    <li class="list-group-item">A second item</li>
-                                    <li class="list-group-item">A third item</li>
-                                </ul>
-
-                            </div>
-
-                            <div class="card" style="width: 18rem;">
-                                <img src="images/carro3.jpg" class="card-img-top" alt="">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the
-                                        bulk of the card's
-                                        content.</p>
-                                </div>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">An item</li>
-                                    <li class="list-group-item">A second item</li>
-                                    <li class="list-group-item">A third item</li>
-                                </ul>
-
-                            </div>
-
-                            <div class="card" style="width: 18rem;">
-                                <img src="images/carro3.jpg" class="card-img-top" alt="">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the
-                                        bulk of the card's
-                                        content.</p>
-                                </div>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">An item</li>
-                                    <li class="list-group-item">A second item</li>
-                                    <li class="list-group-item">A third item</li>
-                                </ul>
-
-                            </div>
-
-                            <div class="card" style="width: 18rem;">
-                                <img src="images/carro2.jpg" class="card-img-top" alt="">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the
-                                        bulk of the card's
-                                        content.</p>
-                                </div>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">An item</li>
-                                    <li class="list-group-item">A second item</li>
-                                    <li class="list-group-item">A third item</li>
-                                </ul>
-
-                            </div>
-
-
+                            if (mysqli_num_rows($query_run) > 0) {
+                                //atribuir as informação do select ao array container 
+                                foreach ($query_run as $produto) {
+                                    ?>
+                                    <div class="card" style="width: 18rem; border: 3px solid; border-width: 3px; border-style: solid; font-weight: bold;">
+                                        <img src="../adm/arquivos/<?= $produto['nm_imagem'] ?>" class="card-img-top" alt=""
+                                        style="width: 100%; max-width: 250px; max-height: 200px">
+                                        <div class="card-body">
+                                            <h5 class="card-title">
+                                                <?= $produto['nm_produto'] ?>
+                                            </h5>
+                                            <p class="card-text">
+                                                <?= $produto['descricao'] ?>
+                                            </p>
+                                            <hr>
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item" style="font-size: 25px; cursor: auto; background-color: #E6E6E6; border: 3px solid">R$
+                                                    <?= $produto['vl_produto'] ?>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <button class="carousel-control-prev" type="button"
+                                        data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button"
+                                        data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                    <?php
+                                }
+                            }
+                            ?>
                         </div>
-
-
-                    </div>
-
-                    <div class="carousel-item">
-
-                        <div class="cards-wrapper">
-
-                            <div class="card" style="width: 18rem;">
-                                <img src="images/carro1.jpg" class="card-img-top" alt="">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the
-                                        bulk of the card's
-                                        content.</p>
-                                </div>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">An item</li>
-                                    <li class="list-group-item">A second item</li>
-                                    <li class="list-group-item">A third item</li>
-                                </ul>
-
-                            </div>
-
-                            <div class="card" style="width: 18rem;">
-                                <img src="images/carro2.jpg" class="card-img-top" alt="">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the
-                                        bulk of the card's
-                                        content.</p>
-                                </div>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">An item</li>
-                                    <li class="list-group-item">A second item</li>
-                                    <li class="list-group-item">A third item</li>
-                                </ul>
-
-                            </div>
-
-                            <div class="card" style="width: 18rem;">
-                                <img src="images/carro3.jpg" class="card-img-top" alt="">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the
-                                        bulk of the card's
-                                        content.</p>
-                                </div>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">An item</li>
-                                    <li class="list-group-item">A second item</li>
-                                    <li class="list-group-item">A third item</li>
-                                </ul>
-
-                            </div>
-
-                            <div class="card" style="width: 18rem;">
-                                <img src="images/carro3.jpg" class="card-img-top" alt="">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the
-                                        bulk of the card's
-                                        content.</p>
-                                </div>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">An item</li>
-                                    <li class="list-group-item">A second item</li>
-                                    <li class="list-group-item">A third item</li>
-                                </ul>
-
-                            </div>
-
-                            <div class="card" style="width: 18rem;">
-                                <img src="images/carro2.jpg" class="card-img-top" alt="">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the
-                                        bulk of the card's
-                                        content.</p>
-                                </div>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">An item</li>
-                                    <li class="list-group-item">A second item</li>
-                                    <li class="list-group-item">A third item</li>
-                                </ul>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <div class="carousel-item">
-
-                        <div class="cards-wrapper">
-
-                            <div class="card" style="width: 18rem;">
-                                <img src="images/carro1.jpg" class="card-img-top" alt="">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the
-                                        bulk of the card's
-                                        content.</p>
-                                </div>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">An item</li>
-                                    <li class="list-group-item">A second item</li>
-                                    <li class="list-group-item">A third item</li>
-                                </ul>
-
-                            </div>
-
-                            <div class="card" style="width: 18rem;">
-                                <img src="images/carro2.jpg" class="card-img-top" alt="">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the
-                                        bulk of the card's
-                                        content.</p>
-                                </div>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">An item</li>
-                                    <li class="list-group-item">A second item</li>
-                                    <li class="list-group-item">A third item</li>
-                                </ul>
-
-                            </div>
-
-                            <div class="card" style="width: 18rem;">
-                                <img src="images/carro3.jpg" class="card-img-top" alt="">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the
-                                        bulk of the card's
-                                        content.</p>
-                                </div>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">An item</li>
-                                    <li class="list-group-item">A second item</li>
-                                    <li class="list-group-item">A third item</li>
-                                </ul>
-
-                            </div>
-
-                            <div class="card" style="width: 18rem;">
-                                <img src="images/carro3.jpg" class="card-img-top" alt="">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the
-                                        bulk of the card's
-                                        content.</p>
-                                </div>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">An item</li>
-                                    <li class="list-group-item">A second item</li>
-                                    <li class="list-group-item">A third item</li>
-                                </ul>
-
-                            </div>
-
-                            <div class="card" style="width: 18rem;">
-                                <img src="images/carro2.jpg" class="card-img-top" alt="">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the
-                                        bulk of the card's
-                                        content.</p>
-                                </div>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">An item</li>
-                                    <li class="list-group-item">A second item</li>
-                                    <li class="list-group-item">A third item</li>
-                                </ul>
-
-                            </div>
-
-
-
-
-                        </div>
-
-
-
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
@@ -649,9 +217,8 @@
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
-
         </div>
-    </main> 
+    </main>
 
     <!-- FOOTER/RODAPÉ -->
 

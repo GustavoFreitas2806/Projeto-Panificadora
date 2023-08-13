@@ -228,26 +228,9 @@ h1 {
     margin-left: 0.3em;
 }
 
-@media(min-width: 4508px) {
-    #news-container {
-        padding-right: 2em;
-    }
 
-    #links-container {
-        padding-left: 2em;
-    }
 
-    #contact-container {
-        padding: 0 2em;
-        border-left: 1px solid #7a7a7a;
-        border-right: 1px solid #7a7a7a;
-    }
-
-    
-    #mini-banners .card {
-        transition: 1s;
-    }
-
+@media(min-width: 700px) {
     #mini-banners .card:hover {
         padding: 4em 0.6em;
         border-radius: 0;
@@ -255,8 +238,27 @@ h1 {
         border-style: inset;
         transition: 1s;
     }
+        #news-container {
+            padding-right: 2em;
+        }
+        
+        #links-container {
+            padding-left: 2em;
+        }
+        
+        #contact-container {
+            padding: 0 2em;
+            border-left: 1px solid #7a7a7a;
+            border-right: 1px solid #7a7a7a;
+        }
+    }
+
+@media(min-width: 4508px) {
 
     
+    #mini-banners .card {
+        transition: 1s;
+    }
         
     .carousel-inner > .carousel-item > img {
         min-width: 100%;

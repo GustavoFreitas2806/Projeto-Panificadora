@@ -129,12 +129,10 @@ h1 {
 #carouselExampleIndicators {
     margin-top: 80px;
     margin-bottom: 55px;
-    background-color: #7a7a7a;
+    background-color: #c4c4c4;
     margin-left: 5%;
     margin-right: 5%;
     border-radius: 10px;
-
-
 }
 
 .cards-wrapper {

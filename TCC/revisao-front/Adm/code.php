@@ -41,7 +41,7 @@ if (isset($_POST['sair'])) {
     //o que estava dando erro era o fato de não ter iniciado a sessão no código para poder destruir ela depois, estava destruindo o nada
     session_start();
     session_destroy();
-    header("Location: ../cliente/index.html");
+    header("Location: ../cliente/index.php");
 }
 
 
@@ -207,20 +207,22 @@ if (isset($_POST['delete_fornada'])) {
 if (isset($_POST['save_fornada'])) {
     //mysqli_real_escape_string é usada para verificar caracteres especiais em uma string, tornando-a segura para ser usada em consultas SQL
 
+    date_default_timezone_set('America/Sao_Paulo'); //Função do próprio PHP para arrumar o horário de determinada região;
+
+    // https://www.php.net/manual/en/timezones.php
+
+
     $quantidade = mysqli_real_escape_string($con, $_POST['quantidade']);
-    $dt_fornada = date('Y-m-d H:i:s');
+    $dt_fornada = date('Y/m/d H:i');
+    // $dt_fornada->format('Y/m/d H:i');
+
 
     $query = "INSERT INTO tb_fornada (`quantidade`, `dt_fornada`) VALUES ('$quantidade', '$dt_fornada');";
     $query_run = mysqli_query($con, $query);
 
-    $query_fornada = $db->query($sql);
-    // O segredo esta nesta linha abaixo \\/
-    $return = $query_fornada->fetchAll();
-
 
     if ($query_run) {
-        $_SESSION['message'] = $return['quantidade'];
-        $_SESSION['messageLogin'] = "Fornada cadastrada com sucesso!";
+        $_SESSION['message'] = "Fornada cadastrada com sucesso!";
         header("Location: fornada.php");
         exit(0);
     } else {

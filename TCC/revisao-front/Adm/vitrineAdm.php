@@ -21,7 +21,7 @@ require 'protect.php';
             <li class="active"><a href="index.html">Vitrine</a></li>
             <li><a href="fornada.php">Fornada</a></li>
             <form action="code.php" method="POST">
-                <li><a href="../Cliente/index.html"><button class="adm" type="submit" name="sair">Sair</button></a></li>
+                <li><a href="../Cliente/index.php"><button class="adm" type="submit" name="sair">Sair</button></a></li>
             </form>
         </ul>
         <img class="menu" src="images/menu.png" alt="Menu" onclick="toggleMenu()" />
@@ -30,7 +30,6 @@ require 'protect.php';
     <div class="container mt-4">
         <!-- importa as informações do arquivo, apresentando uma mensagem de AVISO -->
         <?php include('message.php'); ?>
-
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -40,7 +39,6 @@ require 'protect.php';
                         </h4>
                     </div>
                     <div class="card-body">
-
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
